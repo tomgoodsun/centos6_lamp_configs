@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APACHECTL="/sbin/apachectl"
+APACHECTL="/usr/sbin/apachectl"
 
 # ServerName setting
 if [ ! $1 ]; then
@@ -10,13 +10,9 @@ fi
 VHOST_NAME=$1
 
 # User setting
-${2-"webmaster"}
-${3-"webmaster"}
-${4-"yourname@example.com"}
-
-USER=$2
-GROUP=$3
-SERVER_ADMIN=$4
+USER=${2-webmaster}
+GROUP=${3-webmaster}
+SERVER_ADMIN=${4-yourname@example.com}
 
 # Directory paths
 VHOSTS_DIR="/etc/httpd/vhosts"
